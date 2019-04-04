@@ -7,12 +7,23 @@ class Main {
       document.querySelector("#agenda")
     );
 
-    document.querySelector("#btnAdd2").addEventListener("click", () => {
-        if (form.checkValidity() === true) {
-        agenda.addAlumnos(alumnos);
-        }
-    });
-    
+    document.querySelector("#btn2").addEventListener("click", () => {
+      let numCuenta = document.querySelector("#cuenta").value;
+
+      this.alumno.forEach( (e, index) => {
+          if (e.cuenta == numCuenta) {
+              alumnos.asistencias++;
+      
+              localStorage.setItem("alumnos", JSON.stringify(this.alumno));
+              this._tabla.rows[index+1].cells[0].innerHTML = alumnos.cuenta;
+              this._tabla.rows[index+1].cells[1].innerHTML = alumnos.nombre;
+              this._tabla.rows[index+1].cells[2].innerHTML = alumnos.asistencias;
+          }else{
+              alert("El numero de cuenta no esta registrado");
+          }
+      });
+  });
+ 
 
     document.querySelector("#btnAdd").addEventListener("click", () => {
       let form = document.querySelector("#form");
