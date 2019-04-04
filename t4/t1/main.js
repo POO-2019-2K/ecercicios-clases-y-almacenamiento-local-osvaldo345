@@ -2,7 +2,7 @@ document.querySelector("#btnAdd").addEventListener("click", ()=>{
     let uCuenta = document.querySelector("#cuenta").value;
     let uNombre = document.querySelector("#nombre").value;
 
-    
+    //localStorage.removeItem("credenciales-2");
    let user = {
        cuenta : uCuenta,
        nombre : uNombre
@@ -18,4 +18,5 @@ document.querySelector("#btnAdd").addEventListener("click", ()=>{
    console.log(todos);
    todos.push(user);
    localStorage.setItem("credenciales-2", JSON.stringify(todos));
+
 })
